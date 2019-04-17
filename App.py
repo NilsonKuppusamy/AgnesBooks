@@ -1,6 +1,6 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort
 import os
-from Books import Books
+from Products import Products
 from AppConstants import AppConstants
 
 
@@ -12,10 +12,10 @@ def home():
 	if not session.get('logged_in'):
 		return render_template('login.html')
 	else:
-		books = []
-		for book in appConstants.books :
-			books.append(Books(book["name"], book["price"]).getBooks())
-		print(books)
+		products = []
+		for product in appConstants.products :
+			products.append(Products(product["name"], product["description"], product["price"], product["ownerName"]).getProducts())
+		print(products)
 		return "Logged in successfully"
  
 @app.route('/login', methods=['POST'])
@@ -30,4 +30,4 @@ def do_admin_login():
  
 if __name__ == "__main__":
 	app.secret_key = os.urandom(12)
-	app.run(debug=True,host='192.168.1.10', port=4000)
+	app.run(debug=True,host='192.168.11.105', port=4000)
