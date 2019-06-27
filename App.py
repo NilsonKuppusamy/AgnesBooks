@@ -16,7 +16,7 @@ def home():
 		for product in appConstants.products :
 			products.append(Products(product["name"], product["description"], product["price"], product["ownerName"]).getProducts())
 		print(products)
-		return "Logged in successfully"
+		return render_template('dashboard.html', products = products)
  
 @app.route('/login', methods=['POST'])
 

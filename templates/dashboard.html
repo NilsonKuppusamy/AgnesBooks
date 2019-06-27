@@ -1,0 +1,28 @@
+{% block body %}
+
+	<ul>
+		<li><a href = "#dashboard">Dashboard</a></li>
+		<li><a href = "#yourOrders">Your Orders</a></li>
+	</ul>
+	<div id = "dashboard">
+		<table style=" width: 100%; ">
+			<tr style=" font-size: large; color: orchid;">
+				<th> Name </th>
+				<th> Description </th>
+				<th> Price </th>
+			</tr>
+	
+			{% for product in products %}
+			<tr style=" text-align: left; ">
+				<th>{{ product["name"]}}</th>
+				<th>{{ product["description"]}}</th>
+				<th>{{ product["price"]}}</th>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+
+	<div id = "yourOrders">
+		<h1>Test</h1>
+	</div>
+{% endblock %}
